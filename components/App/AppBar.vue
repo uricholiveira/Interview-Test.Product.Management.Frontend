@@ -42,45 +42,7 @@ const { loggedIn, clear, user } = useUserSession()
       inset
       false-icon="mdi-white-balance-sunny"
       true-icon="mdi-weather-night"
-      class="opacity-80"
+      class="opacity-80 mr-4"
     />
-    <v-btn
-      icon
-      href="https://github.com/kingyue737/vitify-nuxt"
-      size="small"
-      class="ml-2"
-      target="_blank"
-    >
-      <v-icon size="30" icon="mdi-github" />
-    </v-btn>
-    <v-menu location="bottom">
-      <template #activator="{ props: menu }">
-        <v-tooltip location="bottom">
-          <template #activator="{ props: tooltip }">
-            <v-btn icon v-bind="mergeProps(menu, tooltip)" class="ml-1">
-              <v-icon v-if="!loggedIn" icon="mdi-account-circle" size="36" />
-              <v-avatar v-else color="primary" size="36">
-                <v-img :src="`https://github.com/${user!.login}.png`" />
-              </v-avatar>
-            </v-btn>
-          </template>
-          <span>{{ loggedIn ? user!.login : 'User' }}</span>
-        </v-tooltip>
-      </template>
-      <v-list>
-        <v-list-item
-          v-if="!loggedIn"
-          title="Login"
-          prepend-icon="mdi-github"
-          href="/api/auth/github"
-        />
-        <v-list-item
-          v-else
-          title="Logout"
-          prepend-icon="mdi-logout"
-          @click="clear"
-        />
-      </v-list>
-    </v-menu>
   </v-app-bar>
 </template>

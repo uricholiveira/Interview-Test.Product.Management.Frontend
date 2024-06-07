@@ -67,5 +67,8 @@ export default defineNuxtConfig({
       name: 'nuxt-session',
       password: '',
     },
+    backend: {
+      url: ''
+    }
   },
 })
